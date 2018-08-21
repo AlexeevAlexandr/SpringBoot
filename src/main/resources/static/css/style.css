@@ -1,0 +1,16 @@
+h1 {
+    color: green;
+    }
+
+h2 {
+    color: yellow;
+    }
+
+table {
+    border-collapse: collapse;
+    color: blue;
+    }
+
+table th, table td {
+    padding:5px;
+    }
