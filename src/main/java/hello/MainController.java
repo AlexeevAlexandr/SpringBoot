@@ -1,5 +1,6 @@
 package hello;
 
+import dataBaseConnect.Commands;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,14 +13,14 @@ import java.util.List;
 
 @Controller
 public class MainController {
+    private Commands commands = new Commands();
 
     private static List<Person> persons = new ArrayList<>();
 
     static {
-        persons.add(new Person("Bill", "Gates", "bill@i.ua"));
+        persons.add(new Person("Bill", "Gates", "bill@gmail.com"));
     }
 
-    // ​​​​​​​
     // Вводится (inject) из application.properties.
     @Value("${welcome.message}")
     private String message;
@@ -59,11 +60,11 @@ public class MainController {
         String lastName = personForm.getLastName();
         String email = personForm.getEmail();
 
-        if (firstName != null && firstName.length() > 0
-                && lastName != null && lastName.length() > 0
-                && email != null && email.length() >0 ) {
+        if (firstName != null && firstName.length() > 0 && lastName != null && lastName.length() > 0) {
             Person newPerson = new Person(firstName, lastName, email);
+            commands.add(firstName, lastName, email);
             persons.add(newPerson);
+
 
             return "redirect:/personList";
         }

@@ -7,16 +7,29 @@
 </head>
 <body>
 <h1>Create a Person:</h1>
+
+<!--
+   In Thymeleaf the equivalent of
+   JSP's ${pageContext.request.contextPath}/edit.html
+   would be @{/edit.html}
+   -->
+
 <form th:action="@{/addPerson}"
       th:object="${personForm}" method="POST">
     First Name:
-    <input type="text" th:field="*{firstName}" />
+    <label>
+        <input type="text" th:field="*{firstName}"/>
+    </label>
     <br/>
     Last Name:
-    <input type="text" th:field="*{lastName}" />
+    <label>
+        <input type="text" th:field="*{lastName}"/>
+    </label>
     <br/>
     Email:
-    <input type="text" th:field="*{email}"/>
+    <label>
+        <input type="text" th:field="*{email}"/>
+    </label>
     <br/>
     <input type="submit" value="Create" />
 </form>
