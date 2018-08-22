@@ -18,7 +18,7 @@ public class MainController {
     private static List<Person> persons = new ArrayList<>();
 
     static {
-        persons.add(new Person(1,"we","we","we"));
+            persons.add(new Person(1, "we", "we", "we"));
     }
 
     // Вводится (inject) из application.properties.
@@ -63,7 +63,6 @@ public class MainController {
             Person newPerson = new Person(id, firstName, lastName, email);
             commands.add(firstName, lastName, email);
             persons.add(newPerson);
-
 
             return "redirect:/personList";
         }
