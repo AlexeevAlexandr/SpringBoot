@@ -18,7 +18,7 @@ public class MainController {
     private static List<Person> persons = new ArrayList<>();
 
     static {
-        persons.add(new Person("Bill", "Gates", "bill@gmail.com"));
+        persons.add(new Person(1,"we","we","we"));
     }
 
     // Вводится (inject) из application.properties.
@@ -30,9 +30,7 @@ public class MainController {
 
     @RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)
     public String index(Model model) {
-
         model.addAttribute("message", message);
-
         return "index";
     }
 
@@ -56,12 +54,13 @@ public class MainController {
     @RequestMapping(value = { "/addPerson" }, method = RequestMethod.POST)
     public String savePerson(Model model, @ModelAttribute("personForm") PersonForm personForm) {
 
+        int id = personForm.getId();
         String firstName = personForm.getFirstName();
         String lastName = personForm.getLastName();
         String email = personForm.getEmail();
 
         if (firstName != null && firstName.length() > 0 && lastName != null && lastName.length() > 0) {
-            Person newPerson = new Person(firstName, lastName, email);
+            Person newPerson = new Person(id, firstName, lastName, email);
             commands.add(firstName, lastName, email);
             persons.add(newPerson);
 

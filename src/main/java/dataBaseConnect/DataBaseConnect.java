@@ -58,6 +58,12 @@ public class DataBaseConnect {
         this.email = email;
     }
 
-
+    @Override
+    public String toString() {
+        return  "id: " + id + "\n" +
+                "First Name: " + firstName + "\n" +
+                "Last Name: " + lastName + "\n" +
+                "Email: " + email + "\n";
+    }
 }
 
