@@ -60,4 +60,9 @@ public class MainController {
         return "addPerson";
     }
 
+    @RequestMapping(value = {"/clearData"}, method = RequestMethod.GET)
+    public String clearData(){
+        commands.clear();
+        return "redirect:/personList";
+    }
 }
