@@ -2,13 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
-    <title>Add Person</title>
+    <title>Clear Data</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
 <body>
-<h1>Create a Person:</h1>
+<h1>Clear Data:</h1>
 
-<form th:action="@{/addPerson}"
+<form th:action="@{/clearData}"
       th:object="${personForm}" method="POST">
     First Name:
     <label>
