@@ -1,11 +1,12 @@
 package dataBaseConnect;
 
-import hello.Person;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+
+import java.util.List;
 
 public class Commands {
     private Transaction transaction = null;
@@ -23,10 +24,10 @@ public class Commands {
             e.getMessage();}
     }
 
-    public static Person list() {
+    public List list() {
         try (SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
              Session session = sessionFactory.openSession()) {
-            return (Person) session.createQuery("FROM DataBaseConnect").list();
+            return session.createQuery("FROM DataBaseConnect").list();
         } catch (HibernateException e) {
             e.getMessage();
         }

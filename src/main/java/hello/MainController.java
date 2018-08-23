@@ -15,12 +15,6 @@ import java.util.List;
 public class MainController {
     private Commands commands = new Commands();
 
-    private static List<Person> persons = new ArrayList<>();
-
-    static {
-            persons.add(new Person(1, "we", "we", "we"));
-    }
-
     // Вводится (inject) из application.properties.
     @Value("${welcome.message}")
     private String message;
@@ -37,7 +31,7 @@ public class MainController {
     @RequestMapping(value = { "/personList" }, method = RequestMethod.GET)
     public String personList(Model model) {
 
-        model.addAttribute("persons", persons);
+        model.addAttribute("persons", commands.list());
 
         return "personList";
     }
@@ -54,19 +48,14 @@ public class MainController {
     @RequestMapping(value = { "/addPerson" }, method = RequestMethod.POST)
     public String savePerson(Model model, @ModelAttribute("personForm") PersonForm personForm) {
 
-        int id = personForm.getId();
         String firstName = personForm.getFirstName();
         String lastName = personForm.getLastName();
         String email = personForm.getEmail();
 
         if (firstName != null && firstName.length() > 0 && lastName != null && lastName.length() > 0) {
-            Person newPerson = new Person(id, firstName, lastName, email);
             commands.add(firstName, lastName, email);
-            persons.add(newPerson);
-
             return "redirect:/personList";
         }
-
         model.addAttribute("errorMessage", errorMessage);
         return "addPerson";
     }
