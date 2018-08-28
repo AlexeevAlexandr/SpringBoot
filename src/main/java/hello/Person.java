@@ -1,7 +1,5 @@
 package hello;
 
-import dataBaseConnect.DataBaseConnect;
-
 public class Person {
     private int id;
     private String firstName;
