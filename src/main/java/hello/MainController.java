@@ -24,8 +24,11 @@ public class MainController {
     @Value("First Name & Last Name is required!")
     private String errorMessage;
 
-    @Value("Incorrect email adres!")
+    @Value("Incorrect email address!")
     private String errorMessageEmail;
+
+    @Value("The maximum number of characters is 50")
+    private String errorMessageNumber;
 
     @RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)
     public String index(Model model) {
@@ -58,7 +61,11 @@ public class MainController {
         String email = personForm.getEmail();
 
         try {
-            if (firstName != null && firstName.length() > 0 && lastName != null && lastName.length() > 0) {
+            if (firstName.length() > 50 || lastName.length() > 50|| email.length() > 50) {
+                model.addAttribute("errorMessage", errorMessageNumber);
+                return "addPerson";
+
+            }else if (firstName.length() > 0 && lastName.length() > 0) {
                 commands.add(firstName, lastName, email);
                 return "redirect:/personList";
             }
