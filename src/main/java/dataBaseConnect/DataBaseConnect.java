@@ -1,6 +1,7 @@
 package dataBaseConnect;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 
 @Entity
 @Table(name = "data_base")
@@ -13,6 +14,7 @@ public class DataBaseConnect {
     private String firstName;
     @Column (name = "lastName")
     private String lastName;
+    @Email
     @Column (name = "email")
     private String email;
 
@@ -58,9 +60,5 @@ public class DataBaseConnect {
         this.email = email;
     }
 
-//    @Override
-//    public String toString() {
-//        return  id + "," + firstName + "," + lastName + "," + email;
-//    }
 }
 

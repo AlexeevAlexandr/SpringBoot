@@ -18,12 +18,14 @@ import javax.servlet.http.HttpServletResponse;
 public class MainController {
     private Commands commands = new Commands();
 
-    // Вводится (inject) из application.properties.
-    @Value("${welcome.message}")
+    @Value("Hello Thymeleaf")
     private String message;
 
-    @Value("${error.message}")
+    @Value("First Name & Last Name is required!")
     private String errorMessage;
+
+    @Value("Incorrect email adres!")
+    private String errorMessageEmail;
 
     @RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)
     public String index(Model model) {
@@ -55,12 +57,17 @@ public class MainController {
         String lastName = personForm.getLastName();
         String email = personForm.getEmail();
 
-        if (firstName != null && firstName.length() > 0 && lastName != null && lastName.length() > 0) {
-            commands.add(firstName, lastName, email);
-            return "redirect:/personList";
+        try {
+            if (firstName != null && firstName.length() > 0 && lastName != null && lastName.length() > 0) {
+                commands.add(firstName, lastName, email);
+                return "redirect:/personList";
+            }
+            model.addAttribute("errorMessage", errorMessage);
+            return "addPerson";
+        }catch (Exception e){
+            model.addAttribute("errorMessage", errorMessageEmail);
+            return "addPerson";
         }
-        model.addAttribute("errorMessage", errorMessage);
-        return "addPerson";
     }
 
     @RequestMapping(value = {"/clearData"}, method = RequestMethod.GET)
