@@ -2,6 +2,7 @@ package dataBaseConnect;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "data_base")
@@ -11,11 +12,14 @@ public class DataBaseConnect {
     @Column (name = "id")
     private int id;
     @Column (name = "firstName")
+    @Size(max = 50)
     private String firstName;
     @Column (name = "lastName")
+    @Size(max = 50)
     private String lastName;
     @Email
     @Column (name = "email")
+    @Size(max = 50)
     private String email;
 
     public DataBaseConnect(){
