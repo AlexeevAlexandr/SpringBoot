@@ -79,7 +79,17 @@ public class MainController {
 
     @RequestMapping(value = {"/clearData"}, method = RequestMethod.GET)
     public String clearData(){
+        return "clearData";
+    }
+
+    @RequestMapping(value = {"/confirmClear"}, method = RequestMethod.GET)
+    public String confirmClear(){
         commands.clear();
+        return "redirect:/personList";
+    }
+
+    @RequestMapping(value = {"/abort"})
+    public String abort(){
         return "redirect:/personList";
     }
 
