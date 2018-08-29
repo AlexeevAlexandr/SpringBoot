@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 public class MainController {
     private Commands commands = new Commands();
 
-    @Value("This Is made by Thymeleaf")
+    @Value("This is made by Thymeleaf")
     private String message;
 
     @Value("First Name & Last Name is required!")
