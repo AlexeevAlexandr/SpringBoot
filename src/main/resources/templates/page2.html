@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Page 1</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<h1>
+    <img th:src="@{/index.jpg}" alt="memorynotfound logo"/>
+    This is page 2
+</h1>
+
+<!--add on start page link-->
+<form action="#" data-th-action="@{/index}" data-th-object="${model}">
+    <button type="submit">Return to start page</button>
+</form>
+</body>
+</html>

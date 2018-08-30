@@ -8,14 +8,16 @@
 <body>
 <h1>
     <img th:src="@{/index.jpg}" alt="memorynotfound logo"/>
-    Welcome on my page
+    Welcome to the start page
     <img th:src="@{/index.jpg}" alt="memorynotfound logo"/>
 </h1>
 <h2 th:utext="${message}">..!..</h2>
 
 <!--add on start page link-->
 <a th:href="@{/personList}">Person List</a>
-
+<form action="#" data-th-action="@{/action}" data-th-object="${model}" method="post">
+    <button type="submit" name="action" value="value1">Page 1</button>
+    <button type="submit" name="action" value="value2">Page 2</button>
+</form>
 </body>
-
 </html>

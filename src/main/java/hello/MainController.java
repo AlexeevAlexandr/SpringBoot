@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -100,5 +101,22 @@ public class MainController {
             new SecurityContextLogoutHandler().logout(request, response, auth);
         }
         return "redirect:/";
+    }
+
+    @RequestMapping(value = {"/action"}, method = RequestMethod.POST)
+    public String action(@RequestParam(name = "action") String action){
+        if (action.equals("value1")){return "redirect:/page1";}
+        else if (action.equals("value2")){return "redirect:/page2";}
+        return action;
+    }
+
+    @RequestMapping(value = {"/page1"})
+    public String page1(){
+        return "/page1";
+    }
+
+    @RequestMapping(value = {"/page2"})
+    public String page2(){
+        return "/page2";
     }
 }
