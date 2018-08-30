@@ -15,9 +15,18 @@
 
 <!--add on start page link-->
 <a th:href="@{/personList}">Person List</a>
+<br/><br/>
 <form action="#" data-th-action="@{/action}" data-th-object="${model}" method="post">
     <button type="submit" name="action" value="value1">Page 1</button>
     <button type="submit" name="action" value="value2">Page 2</button>
 </form>
+<br/>
+<select>
+    <option disabled selected>Please select...</option>
+    <option value="apple">Apple</option>
+    <option value="banana">Banana</option>
+    <option value="orange">Orange</option>
+    <option value="pear">Pear</option>
+</select>
 </body>
 </html>
