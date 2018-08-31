@@ -11,12 +11,12 @@ import java.util.List;
 public class Commands {
     private Transaction transaction = null;
 
-    public void add(String firstName, String lastName, String email) {
+    public void add(String firstName, String lastName, String email, String date) {
         try (SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
              Session session = sessionFactory.openSession())
         {
             transaction = session.beginTransaction();
-            DataBaseConnect dataBaseConnect = new DataBaseConnect(firstName, lastName, email);
+            DataBaseConnect dataBaseConnect = new DataBaseConnect(firstName, lastName, email, date);
             session.save(dataBaseConnect);
             transaction.commit();
         } catch(Exception e){

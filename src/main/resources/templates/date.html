@@ -8,8 +8,8 @@
 <body>
 <h1>
     <img th:src="@{/index.jpg}" alt="memorynotfound logo"/>
-    <p>Date: <strong th:text="${#temporals.format(now, 'dd.MMMM.yyyy')}"></strong></p>
-    <p>Time: <strong th:text="${#temporals.format(now, 'HH:mm:ss')}"></strong></p>
+    <p>Date: <strong th:text="${#temporals.format(now,'dd.MMMM.yyyy')}"></strong></p>
+    <p>Time: <strong th:text="${#temporals.format(now,'HH:mm:ss')}"></strong></p>
 </h1>
 
 <!--add on start page link-->

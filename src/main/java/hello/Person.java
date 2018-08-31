@@ -5,16 +5,18 @@ public class Person {
     private String firstName;
     private String lastName;
     private String email;
+    private String date;
 
     public Person() {
 
     }
 
-    public Person(int id, String firstName, String lastName, String email) {
+    public Person(int id, String firstName, String lastName, String email, String date) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.date = date;
     }
 
     public int getId() {
@@ -49,4 +51,11 @@ public class Person {
         return email;
     }
 
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 }

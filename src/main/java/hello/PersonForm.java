@@ -1,6 +1,6 @@
 package hello;
 
-public class PersonForm {
+class PersonForm {
     private int id;
     private String firstName;
     private String lastName;
@@ -37,5 +37,4 @@ public class PersonForm {
     public void setEmail(String email) {
         this.email = email;
     }
-
 }

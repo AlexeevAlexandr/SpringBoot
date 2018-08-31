@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Controller
 public class MainController {
@@ -58,6 +60,7 @@ public class MainController {
         String firstName = personForm.getFirstName();
         String lastName = personForm.getLastName();
         String email = personForm.getEmail();
+        String date = getDateTime();
 
         try {
             if (firstName.length() > 50 || lastName.length() > 50|| email.length() > 50) {
@@ -65,7 +68,7 @@ public class MainController {
                 return "addPerson";
 
             }else if (firstName.length() > 0 && lastName.length() > 0) {
-                commands.add(firstName, lastName, email);
+                commands.add(firstName, lastName, email, date);
                 return "redirect:/personList";
             }
             model.addAttribute("errorMessage", errorMessage);
@@ -119,8 +122,12 @@ public class MainController {
     }
 
     @GetMapping("/date")
-    String date (Model model) {
+    public String date (Model model) {
         model.addAttribute("now", LocalDateTime.now());
         return "date";
+    }
+
+    private String getDateTime() {
+        return new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new Date());
     }
 }
