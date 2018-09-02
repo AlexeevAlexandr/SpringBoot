@@ -39,18 +39,14 @@ public class MainController {
 
     @RequestMapping(value = { "/personList" }, method = RequestMethod.GET)
     public String personList(Model model) {
-
         model.addAttribute("persons", commands.list());
-
         return "personList";
     }
 
     @RequestMapping(value = { "/addPerson" }, method = RequestMethod.GET)
     public String showAddPersonPage(Model model) {
-
         PersonForm personForm = new PersonForm();
         model.addAttribute("personForm", personForm);
-
         return "addPerson";
     }
 
@@ -125,6 +121,13 @@ public class MainController {
     public String date (Model model) {
         model.addAttribute("now", LocalDateTime.now());
         return "date";
+    }
+
+    @RequestMapping(value = { "/userInfo" }, method = RequestMethod.GET)
+    public String userInfo(Model model) {
+        int id = 1;
+        model.addAttribute("persons", commands.user(id));
+        return "userInfo";
     }
 
     private String getDateTime() {

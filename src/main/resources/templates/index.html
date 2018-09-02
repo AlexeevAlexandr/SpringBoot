@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
     <title>Welcome</title>
@@ -16,9 +16,9 @@
 <!--add on start page link-->
 <a th:href="@{/personList}">Person List</a>
 <a th:href="@{/date}">View Date</a>
-<a href="logOut">Log Out</a>
+<a th:href="@{/logOut}">Log Out</a>
 <br/><br/>
-<form action="#" data-th-action="@{/action}" data-th-object="${model}" method="post">
+<form action="#" data-th-action="@{/action}" method="post">
     <button type="submit" name="action" value="value1">Page 1</button>
     <button type="submit" name="action" value="value2">Page 2</button>
 </form>

@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
     <title>Page 1</title>
@@ -12,9 +12,9 @@
     <p>Time: <strong th:text="${#temporals.format(now,'HH:mm:ss')}"></strong></p>
 </h1>
 
-<!--add on start page link-->
-<form action="#" data-th-action="@{/index}" data-th-object="${model}">
+<form action="#" data-th-action="@{/index}">
     <button type="submit">Return to start page</button>
 </form>
+
 </body>
 </html>

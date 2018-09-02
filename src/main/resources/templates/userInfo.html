@@ -1,21 +1,9 @@
 <!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8" />
-    <title>Person List</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
-</head>
-<body>
-<h1>Person List</h1>
-<a href="index">Start Page</a>
-<a href="addPerson">Add Person</a>
-<a href="clearData">Clear Data</a>
-
+<h1>Info about user</h1>
+<a th:href="@{/index}">Start Page</a>
+<a th:href="@{/personList}">Person List</a>
 <br/><br/>
-<a href="userInfo">Info about user</a>
-
-<br/><br/>
-
 <div>
     <table border="1">
         <tr>
@@ -23,7 +11,7 @@
             <th>First Name</th>
             <th>Last Name</th>
             <th>Email</th>
-            <th>Date</th>
+            <th>Date of registration</th>
         </tr>
         <tr th:each ="person : ${persons}">
             <td th:utext="${person.id}">...</td>
@@ -34,5 +22,4 @@
         </tr>
     </table>
 </div>
-</body>
 </html>

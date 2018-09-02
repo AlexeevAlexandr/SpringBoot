@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
     <title>Add Person</title>
@@ -7,9 +7,10 @@
 </head>
 <body>
 <h1>Create a Person:</h1>
-
-<form th:action="@{/addPerson}"
-      th:object="${personForm}" method="POST">
+<a th:href="@{/index}">Start Page</a>
+<a th:href="@{/personList}">Person List</a>
+<br/><br/>
+<form th:action="@{/addPerson}" th:object="${personForm}" method="POST">
     First Name:
     <label>
         <input type="text" th:field="*{firstName}"/>
@@ -26,12 +27,14 @@
     </label>
     <br/>
     <input type="submit" value="Create" />
+    <label>
+        <input type="reset" value="Clear" />
+    </label>
 </form>
 
 <br/>
 
 <!-- Check if errorMessage is not null and not empty -->
-
 <div th:if="${errorMessage}" th:utext="${errorMessage}"
      style="color:red;font-style:italic;">
     ...

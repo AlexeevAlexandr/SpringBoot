@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
     <title>Confirm Clear Data</title>
@@ -7,7 +7,7 @@
 </head>
     <body>
         <h1>Confirm Clear Data</h1>
-        <a href="confirmClear">Confirm</a>
-        <a href="abort">Abort</a>
+        <a th:href="@{/confirmClear}">Confirm</a>
+        <a th:href="@{/abort}">Abort</a>
     </body>
 </html>
