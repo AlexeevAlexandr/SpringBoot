@@ -13,17 +13,17 @@
 <form th:action="@{/addPerson}" th:object="${personForm}" method="POST">
     First Name:
     <label>
-        <input type="text" th:field="*{firstName}"/>
+        <input type="text" th:field="*{firstName}" required minlength="2" maxlength="50" placeholder="max 50 characters"/>
     </label>
     <br/>
     Last Name:
     <label>
-        <input type="text" th:field="*{lastName}"/>
+        <input type="text" th:field="*{lastName}" required minlength="2" maxlength="50" placeholder="max 50 characters"/>
     </label>
     <br/>
     Email:
     <label>
-        <input type="text" th:field="*{email}"/>
+        <input type="text" th:field="*{email}" required minlength="2" maxlength="50" placeholder="max 50 characters"/>
     </label>
     <br/>
     <input type="submit" value="Create" />

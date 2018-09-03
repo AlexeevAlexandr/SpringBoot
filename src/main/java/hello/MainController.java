@@ -19,6 +19,8 @@ import java.util.Date;
 public class MainController {
     private Commands commands = new Commands();
 
+    int id = 1;
+
     @Value("This is made by Thymeleaf")
     private String message;
 
@@ -125,7 +127,6 @@ public class MainController {
 
     @RequestMapping(value = { "/userInfo" }, method = RequestMethod.GET)
     public String userInfo(Model model) {
-        int id = 1;
         model.addAttribute("persons", commands.user(id));
         return "userInfo";
     }
