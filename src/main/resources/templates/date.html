@@ -5,16 +5,27 @@
     <title>Page 1</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
+<script type="text/javascript"
+        src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <body>
 <h1>
     <img th:src="@{/index.jpg}" alt="memorynotfound logo"/>
     <p>Date: <strong th:text="${#temporals.format(now,'dd.MMMM.yyyy')}"></strong></p>
     <p>Time: <strong th:text="${#temporals.format(now,'HH:mm:ss')}"></strong></p>
 </h1>
-
 <form action="#" data-th-action="@{/index}">
     <button type="submit">Return to start page</button>
 </form>
-
+<div id="show" align="center"></div>
 </body>
+<script>
+    $(document).ready(
+        function() {
+            setInterval(function() {
+                var d = new Date();
+                var n = d.toLocaleTimeString();
+                $('#show').text(n);
+            }, 1000);
+        });
+</script>
 </html>
