@@ -10,20 +10,17 @@
 <a href="index">Start Page</a>
 <a href="addPerson">Add Person</a>
 <a href="clearData">Clear Data</a>
-
 <br/><br/>
-<a href="userInfo">Info about user</a>
-
 <fieldset>
     <legend>Enter the user ID:</legend>
-
-    <div class="MainController">
-        <label for="id">ID:</label>
-        <input type="number" id="id" name="id" placeholder="enter user id" />
-        <input type="submit" value="Get info" />
+    <div class="Id">
+        <form th:action="@{/userInfo}" th:object="${id}">
+            <input type="submit" value="Get info">
+        <label for="Id">ID:</label>
+        <input type="number" id="Id" name="id" placeholder="enter the user id" />
         <span class="validity"></span>
+        </form>
     </div>
-
 </fieldset>
 <br/><br/>
 <div>
