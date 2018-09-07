@@ -133,7 +133,7 @@ public class MainController {
         return "userInfo";
     }
 
-    private String getDateTime() {
-        return new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new Date());
+    public String getDateTime() {
+        return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
     }
 }

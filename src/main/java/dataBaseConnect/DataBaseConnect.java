@@ -73,5 +73,14 @@ public class DataBaseConnect {
     public void setDate(String date) {
         this.date = date;
     }
+
+    @Override
+    public String toString() {
+        return "ID: " + getId() + "\n" +
+                "First Name: " + getFirstName() + "\n" +
+                "Last Name: " + getLastName() + "\n" +
+                "Email: " + getEmail() + "\n" +
+                "Date of registration: " + getDate();
+    }
 }
 
