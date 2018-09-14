@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.*;
 
 public class TestCommands {
     private Commands commands = new Commands();
@@ -51,5 +52,23 @@ public class TestCommands {
     @Test(expected = IllegalStateException.class)
     public void incorrectEmailTest(){
         commands.add("FirstName", "LastName", "incorrectEmail", controller.getDateTime());
+    }
+
+    @Test
+    public void test() {
+        List mockedList = mock(List.class);
+
+        mockedList.add("three");
+        mockedList.add("one");
+        mockedList.add("three");
+        mockedList.add("one");
+        mockedList.clear();
+
+        verify(mockedList, times(2)).add("one");
+        verify(mockedList, never()).add("never");
+        verify(mockedList).clear();
+        verify(mockedList, atLeastOnce()).add("three");
+        verify(mockedList, atLeast(2)).add("three");
+        verify(mockedList, atMost(5)).add("three");
     }
 }

@@ -16,7 +16,7 @@ public class Commands {
              Session session = sessionFactory.openSession())
         {
             transaction = session.beginTransaction();
-            DataBaseConnect dataBaseConnect = new DataBaseConnect(firstName, lastName, email, date);
+            dataBaseConnect.DataBaseConnect dataBaseConnect = new dataBaseConnect.DataBaseConnect(firstName, lastName, email, date);
             session.save(dataBaseConnect);
             transaction.commit();
         } catch(Exception e){

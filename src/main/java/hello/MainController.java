@@ -18,8 +18,6 @@ import java.util.Date;
 @Controller
 public class MainController {
     private Commands commands = new Commands();
-    private Id number = new Id();
-    private int id = number.getId();
 
     @Value("This is made by Thymeleaf")
     private String message;
@@ -40,7 +38,7 @@ public class MainController {
     }
 
     @RequestMapping(value = { "/personList" }, method = RequestMethod.GET)
-    public String personList(Model model) {
+    public String personList(Model model, @ModelAttribute("id") Id id) {
         model.addAttribute("persons", commands.list());
         return "personList";
     }
@@ -125,11 +123,11 @@ public class MainController {
         return "date";
     }
 
-    @RequestMapping(value = { "/userInfo" }, method = RequestMethod.GET)
-    public String userInfo(Model model) {
-        Id number = new Id();
-        model.addAttribute("id", number);
-        model.addAttribute("persons", commands.user(id));
+    @RequestMapping(value = { "/userInfo" }, method = RequestMethod.POST)
+    public String userInfo(Model model, Id id) {
+        int a = id.getId();
+        model.addAttribute("id", id);
+        model.addAttribute("persons", commands.user(a));
         return "userInfo";
     }
 

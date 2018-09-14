@@ -11,7 +11,7 @@
 <h1>
     <img th:src="@{/index.jpg}" alt="memorynotfound logo"/>
     <p>Date: <strong th:text="${#temporals.format(now,'dd.MMMM.yyyy')}"></strong></p>
-    <p>Time: <strong th:text="${#temporals.format(now,'HH:mm:ss')}"></strong></p>
+    <time>Time: <time th:text="${#temporals.format(now,'HH:mm:ss')}"></time></time>
 </h1>
 <form action="#" data-th-action="@{/index}">
     <button type="submit">Return to start page</button>

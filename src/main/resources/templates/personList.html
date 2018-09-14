@@ -14,10 +14,10 @@
 <fieldset>
     <legend>Enter the user ID:</legend>
     <div class="Id">
-        <form th:action="@{/userInfo}">
+        <form th:action="@{/userInfo}" th:object="${id}" method="POST">
             <input type="submit" value="Get info">
         <label for="Id">ID:</label>
-        <input type="number" id="Id" name="id" placeholder="enter the user id" />
+        <input type="number" id="Id" name="id" th:field="*{id}" placeholder="enter the user id" />
         <span class="validity"></span>
         </form>
     </div>
@@ -29,15 +29,11 @@
             <th>Id</th>
             <th>First Name</th>
             <th>Last Name</th>
-            <th>Email</th>
-            <th>Date</th>
         </tr>
         <tr th:each ="person : ${persons}">
             <td th:utext="${person.id}">...</td>
             <td th:utext="${person.firstName}">...</td>
             <td th:utext="${person.lastName}">...</td>
-            <td th:utext="${person.email}">...</td>
-            <td th:utext="${person.date}">...</td>
         </tr>
     </table>
 </div>
