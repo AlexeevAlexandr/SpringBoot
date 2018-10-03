@@ -1,9 +1,8 @@
-<!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
     <title>Page 1</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
 <body>
 <h1>
@@ -13,7 +12,7 @@
 
 <!--add on start page link-->
 <form action="#" data-th-action="@{/index}">
-    <button type="submit">Return to start page</button>
+    <button type="submit" title="Return to start page">Return to start page</button>
 </form>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
     <title>Welcome</title>
@@ -9,7 +9,6 @@
 <h1>
     <img th:src="@{/index.jpg}" alt="memorynotfound logo"/>
     Welcome to the start page
-    <img th:src="@{/index.jpg}" alt="memorynotfound logo"/>
 </h1>
 <h2 th:utext="${message}">..!..</h2>
 
@@ -17,12 +16,12 @@
 <a th:href="@{/personList}">Person List</a>
 <a th:href="@{/date}">View Date</a>
 <a th:href="@{/logOut}">Log Out</a>
-<br/><br/>
+<br><br>
 <form action="#" data-th-action="@{/action}" method="post">
     <button type="submit" name="action" value="value1">Page 1</button>
     <button type="submit" name="action" value="value2">Page 2</button>
 </form>
-<br/>
+<br>
 <label>
     <select>
         <option disabled selected>Please select...</option>
@@ -32,7 +31,7 @@
         <option value="pear">Pear</option>
     </select>
 </label>
-<br/><br/>
+<br><br>
 <div th:fragment="copy">© 2011 The Good Thymes Virtual Grocery</div>
 </body>
 </html>

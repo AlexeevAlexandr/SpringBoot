@@ -58,4 +58,9 @@ public class Commands {
             e.getMessage();
         }
     }
+
+    public static void main(String[] args) {
+        Commands commands = new Commands();
+        System.out.println(commands.user(1));
+    }
 }

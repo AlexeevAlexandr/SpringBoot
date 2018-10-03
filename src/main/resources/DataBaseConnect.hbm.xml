@@ -17,4 +17,14 @@
         <property name="date" column="date" type="string"/>
     </class>
 
+    <class name="dataBaseConnect.DataBaseConnectPassword" table="data_base_password">
+        <meta attribute="class-description">
+            This class contains passwords.
+        </meta>
+        <id name="id" type="int" column="id">
+            <generator class="native"/>
+        </id>
+        <property name="password" column="password" type="string"/>
+    </class>
+
 </hibernate-mapping>
